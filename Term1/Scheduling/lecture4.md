@@ -2,7 +2,9 @@ job precedencies: DAGs
 
 focus on some DAG topologies: in-tree/out-tree(out from root node)/opposing forest(many in-trees and out-trees)
 
-Hu's critical path algorithm: $P|i.t.,p_j=1|C_{\max}$ on an in-tree, greedy, prioritize the job whose $\alpha_j$, distance between exit node and it on in-tree, $\text{if}\ j\rightarrow\text{exit node} $, is the largest
+> actually not tree, they're DAGs!
+
+Hu's critical path algorithm: $P|i.t.,p_j=1|C_{\max}$ on an in-tree, greedy, prioritize the job in the ready list whose $\alpha_j$, length of the critical path (longest path) between exit node and it on in-tree, $\text{if}\ j\rightarrow\text{exit node} $, is the largest
 
 how many machines to achieve best $C_{\max}$, if wish to complete in time $t=L+\Delta$ where $\Delta$ is an integer, then the number of  needed machine $m$ satisfies $m=\lfloor\max_q\{\frac{1}{q+\Delta}\sum_{j=1}^q\mathcal{l}(L+1-j)\}\rfloor+1$
 
