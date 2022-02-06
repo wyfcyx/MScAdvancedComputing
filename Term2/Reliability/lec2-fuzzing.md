@@ -1,0 +1,1 @@
+attended the course in person, nothing special.
