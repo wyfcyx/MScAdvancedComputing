@@ -1,3 +1,5 @@
+[link](https://caslab.csl.yale.edu/tutorials/asplos2021/asplos2021_tutorial_part2_public.pdf)
+
 depend on where the security modules are: secure processor(on-chip)/coprocessor/accelerator(inside devices)/monitor(between processors and devices)
 
 linear relationship: Every software layer trust all software below it in normal computer architecture.
