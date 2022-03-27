@@ -1,4 +1,4 @@
-same promise as SGX(thus it is also a ring-3 TEE); eliminate the entire attack surfaces through isolation instead of adding to it; secure but not cryptographic ops;
+same promise as SGX(thus it is also a ring3 TEE); eliminate the entire attack surfaces through isolation instead of adding to it; secure but not cryptographic ops;
 
 problems of SGX: SW isolation guarantees are weak, for example, cannot defense side-channel attacks; HW implementation are hidden; 
 

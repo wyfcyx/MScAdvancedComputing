@@ -105,7 +105,7 @@ challenge: large-scale memory->deep tree->large node loading bandwidth overhead;
 
 on-chip: root tree root used for integrity check; **mount table:** tag, index, subtree root/address;
 
-RAM areas: non-secure memory; secure memory; subtree nodes; MMT meta-zone(subtree root, root tree nodes, **only it is fixed**)
+RAM areas: non-secure memory; secure memory; subtree nodes; MMT meta-zone(subtree root, root tree nodes, **only its size is fixed**)
 
 victim policy: mount table can only hold 32 entries simultaneously; inactive->MMT meta-zone
 
@@ -113,7 +113,9 @@ allocation of the secure memory and subtree node: by host OS but managed by the 
 
 boot: boot ROM, configure MMT meta-zone range, allocate subtree nodes to protect the secure monitor
 
-subtree: 4KB x32=128KB x32=4MB x64=256MB subtree root=1GB 
+MMT structure: 39(root tree root)-34-29-24(root tree leaves)-22(subtree roots)-17-12(4KiB here)-6(since per tree node is 64B)
+
+encryption granularity: a **block** of size 4KiB/64
 
 global/local counter
 
@@ -174,6 +176,8 @@ global/local counter
 > ---
 >
 > SGX MEE paper
+
+integrity checking: calculate hash level by level and compare the result with the hash store in the tree node
 
 The paper did not mention that how the secure memory is encrypted and how the hash is calculated.
 
