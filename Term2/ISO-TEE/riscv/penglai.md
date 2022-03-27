@@ -113,7 +113,7 @@ allocation of the secure memory and subtree node: by host OS but managed by the 
 
 boot: boot ROM, configure MMT meta-zone range, allocate subtree nodes to protect the secure monitor
 
-MMT structure: 39(root tree root)-34-29-24(root tree leaves)-22(subtree roots)-17-12(4KiB here)-6(since per tree node is 64B)
+MMT structure: 39(root tree root)-34-29-24(root tree leaves)-22(subtree roots)-17-12(4KiB here, subtree leaf)-6(64B a block)
 
 encryption granularity: a **block** of size 4KiB/64
 
@@ -145,7 +145,7 @@ global/local counter
 >
 > memory encryption details: the first attempt: use a global counter which is incremented each time a block whatever it is is written back from the cache to the memory, trade-off{global counter width<->its on-chip cache capacity}, **I guess that we should store the value of the global counter when a block is written back to the memory for every block, and this value is not encrypted**; the second attempt: seed=per-block counter+block address+chunk id, smaller counter width->lower cache overhead, **but the block address should not be used for security schemes since it has been used in the underlying memory management system, and this can trigger many issues(see section 4.2)**
 >
-> memory integrity verification details:
+> memory integrity verification details: for a block, its seed is: LPID(unique for each page)+Counter of this block+8 higher bits of the page offset+padding;
 >
 > ---
 >
