@@ -1,0 +1,1 @@
+replay attacks(integrity), adversary modifies the protected area as well as the integrity tree since they are all on the untrust DRAM; merkle tree, use MAC tags rather than hashes; block or unit?; compound nonce: part of address+per-unit counter(version); data units of 512bits;

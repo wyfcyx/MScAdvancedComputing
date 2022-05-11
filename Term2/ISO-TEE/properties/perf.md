@@ -70,3 +70,14 @@ TA concurrency: on a **core** basis. Surprisingly, ARM supports hyperthreading!
 
 secure storage: data stored on untrusted disk is encrypted, an eMMC(Multi Media Card) device is used to prevent replay attacks
 
+OP-TEE: TAs are identified using an UUID, which is unique for each TAs and determined at compile-time; integrity of the TAs are checked when they are loaded into memory
+
+---
+
+there is not significant difference between the loading time of TAs of size 100KiB and 500KiB
+
+context switch time: REE->TEE:110us, opposite: 47us
+
+memory access(TEE from TEE, REE from TEE, REE from REE) if it is interesting...
+
+GP secure storage API performance: 
